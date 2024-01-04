@@ -3,8 +3,9 @@ const cors = require('cors')
 
 // Database Connection Import
 const {connection} = require('./Configuration/db.js')
-// Importing Routes
 
+// Importing Routes
+const {AuthRoutes} = require('./Routes/AuthRouter.js')
 const app = express();
 
 // Middlewares
@@ -13,7 +14,7 @@ app.use(cors());
 
 
 // Routes
-
+app.use('/auth',AuthRoutes);
 
 
 

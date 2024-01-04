@@ -14,10 +14,14 @@ const userschema = mongoose.Schema({
         required:true,
     },
     DOB:{
-        type:Date,
+        type:String,
         required:true
     },
     Email:{
+        type:String,
+        required:true
+    },
+    Password:{
         type:String,
         required:true
     },

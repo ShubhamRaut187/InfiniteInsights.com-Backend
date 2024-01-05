@@ -6,6 +6,8 @@ const {connection} = require('./Configuration/db.js')
 
 // Importing Routes
 const {AuthRoutes} = require('./Routes/AuthRouter.js')
+const {BlogRouter} = require('./Routes/BlogsRouter.js')
+
 const app = express();
 
 // Middlewares
@@ -15,7 +17,7 @@ app.use(cors());
 
 // Routes
 app.use('/auth',AuthRoutes);
-
+app.use('/blog',BlogRouter)
 
 
 // Server Connection with database

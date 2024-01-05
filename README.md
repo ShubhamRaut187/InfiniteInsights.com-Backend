@@ -25,7 +25,6 @@ At least one uppercase letter <br>
 At least one lowercase letter <br>
 At least one numeric digit <br>
 At least one special character (e.g., !, @, #, $) <br><br>
-</hr>
 
 ### 🛅Authentication-Login:/auth/v1/login
 The /auth/v1/login endpoint serves as the gateway for user authentication, allowing users with valid credentials to securely access your platform. Upon successful login, the endpoint generates a JSON Web Token (JWT) to facilitate secure and authenticated communication between the client and server.<br>
@@ -35,9 +34,9 @@ Authentication Required: No <br>
 Authorization Required: No <br>
 Request Format: JSON <br>
 
-The JWT token should be included in the Authorization header of subsequent requests as a bearer token for authentication.
+The JWT token should be included in the Authorization header of subsequent requests as a bearer token for authentication. <br><br>
 
-## 🚀🚀 Launching Soon...! 🚀🚀
+# 🚀🚀 Launching Soon...! 🚀🚀
 
 
 

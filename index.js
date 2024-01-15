@@ -6,6 +6,7 @@ const {connection} = require('./Configuration/db.js')
 
 // Importing Routes
 const {AuthRoutes} = require('./Routes/AuthRouter.js')
+const {UserRoutes} = require('./Routes/UserRouter.js')
 const {BlogRouter} = require('./Routes/BlogsRouter.js')
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 
 // Routes
 app.use('/auth',AuthRoutes);
+app.use('/user',UserRoutes)
 app.use('/blog',BlogRouter)
 
 

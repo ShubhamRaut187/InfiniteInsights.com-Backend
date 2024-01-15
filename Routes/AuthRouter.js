@@ -30,6 +30,7 @@ AuthRoutes.post('/v1/signup',PasswordCheck,async(req,res)=>{
     }
 })
 
+// Login 
 AuthRoutes.post('/v1/login',async(req,res)=>{
     const {Email,Password} = req.body;
     console.log(Email,Password);
@@ -37,6 +38,7 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
         const User = await Usermodel.findOne({Email});
         if(!User){
             res.status(404).send({'Message':'Please signup...!'});
+            return
         }
         const Hash = User.Password;
         const Correct_Password = bcrypt.compareSync(Password,Hash);
@@ -49,9 +51,13 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
                 Gender:User.Gender,
                 Phone:User.Phone,
             }
-            res.status(200).send({'Message':'Login Successful...!','User':UserInfo,'Token':Token});
+           res.status(200).send({'Message':'Login Successful...!','User':UserInfo,'Token':Token});
+        }
+        else{
+            res.status(401).send({'Message':'Wrong Password.'});
         }
     } catch (error) {
+        console.log(error);
         res.status(500).send({'Message':'Internal Server Error! Please try again.','error':error})
     }
 })

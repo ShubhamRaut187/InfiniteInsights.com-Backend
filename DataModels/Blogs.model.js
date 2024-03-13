@@ -21,10 +21,6 @@ const blogschma = mongoose.Schema({
         type:String,
         required:true,
     },
-    Date:{
-        type:String,
-        required:true,
-    },
     Day:{
         type:String,
         required:true
@@ -37,13 +33,17 @@ const blogschma = mongoose.Schema({
         type:String,
         required:true
     },
+    ContentThree:{
+        type:String,
+        required:true
+    },
     Category:{
         type:String,
         required:true,
     },
     Likes:{
         type:Number,
-        required:true,
+        default:0
     },
     Images:{
         type:[String],
@@ -51,7 +51,7 @@ const blogschma = mongoose.Schema({
         required:true
     },
 
-})
+},{timestamps:true})
 
 const Blogmodel = mongoose.model('blogs',blogschma);
 

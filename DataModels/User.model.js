@@ -5,20 +5,13 @@ const userschema = mongoose.Schema({
         type:String,
         required:true
     },
-    Gender:{
-        type:String,
-        required:true
-    },
     Phone:{
         type:Number,
         required:true,
     },
-    DOB:{
-        type:String,
-        required:true
-    },
     Email:{
         type:String,
+        unique:true,
         required:true
     },
     Password:{
@@ -28,6 +21,9 @@ const userschema = mongoose.Schema({
     Avatar:{
         type:String,
         required:true
+    },
+    Bio:{
+        type:String,
     }
 })
 

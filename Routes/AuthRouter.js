@@ -11,17 +11,16 @@ const AuthRoutes =  Router();
 // Routes
 // SignUp
 AuthRoutes.post('/v1/signup',PasswordCheck,async(req,res)=>{
-    const {Name,Gender,Phone,DOB,Email,Password,Avatar} = req.body;
+    const {Name,Phone,Email,Password,Avatar,Bio} = req.body;
     try {
         const Hashed = bcrypt.hashSync(Password,8);
         const New_User = new Usermodel({
             Name,
-            Gender,
             Phone,
-            DOB,
             Email,
             Password:Hashed,
-            Avatar
+            Avatar,
+            Bio
         })
         await New_User.save();
         res.status(201).send({'Message':'Signup Successful...!'});
@@ -48,8 +47,7 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
                 Name:User.Name,
                 Email:User.Email,
                 Avatar:User.Avatar,
-                Gender:User.Gender,
-                Phone:User.Phone,
+                Phone:User.Phone
             }
            res.status(200).send({'Message':'Login Successful...!','User':UserInfo,'Token':Token});
         }

@@ -8,7 +8,7 @@ const {Authorise} = require('../Middlewares/Authorise')
 const BlogRouter = Router();
 
 BlogRouter.post('/v1/create',Authenticate,async(req,res)=>{
-    const {Title,SubTitle,Author,AuthorAvatar,AuthorID,Date,Day,ContentOne,ContentTwo,Category,Likes,Images} = req.body;
+    const {Title,SubTitle,Author,AuthorAvatar,AuthorID,ContentOne,ContentTwo,ContentThree,Category,Images} = req.body;
 
     try {
         const New_Blog = new Blogmodel({
@@ -17,12 +17,10 @@ BlogRouter.post('/v1/create',Authenticate,async(req,res)=>{
             Author,
             AuthorAvatar,
             AuthorID,
-            Date,
-            Day,
             ContentOne,
             ContentTwo,
+            ContentThree,
             Category,
-            Likes,
             Images
         })
         await New_Blog.save();
